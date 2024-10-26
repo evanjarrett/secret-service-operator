@@ -1,8 +1,11 @@
 # secret-service-operator
-// TODO(user): Add simple overview of use/purpose
+
+Create Service Endpoints based on Secrets
 
 ## Description
-// TODO(user): An in-depth paragraph about your project and overview of use
+
+This is designed to be used in tandom with a secrets manager.
+It allows you to specify an endpoint IP and port via a secret, and convert that into a service endpoint.
 
 ## Getting Started
 
@@ -16,12 +19,8 @@
 **Build and push your image to the location specified by `IMG`:**
 
 ```sh
-make docker-build docker-push IMG=<some-registry>/secret-service-operator:tag
+make docker-build IMG=<some-registry>/secret-service-operator:tag
 ```
-
-**NOTE:** This image ought to be published in the personal registry you specified.
-And it is required to have access to pull the image from the working environment.
-Make sure you have the proper permission to the registry if the above commands don’t work.
 
 **Install the CRDs into the cluster:**
 
