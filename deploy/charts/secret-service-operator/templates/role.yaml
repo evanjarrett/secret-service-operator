@@ -1,0 +1,34 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: {{ include "secret-service-operator.fullname" . }}-manager-role
+  labels:
+    {{- include "secret-service-operator.labels" . | nindent 4 }}
+rules:
+- apiGroups:
+  - apps.j5t.io
+  resources:
+  - secretservices
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - apps.j5t.io
+  resources:
+  - secretservices/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - apps.j5t.io
+  resources:
+  - secretservices/status
+  verbs:
+  - get
+  - patch
+  - update
