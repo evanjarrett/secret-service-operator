@@ -1,4 +1,4 @@
-# secret-service-operator
+# secret-service-operator 😎
 
 Create Service Endpoints based on Secrets
 
