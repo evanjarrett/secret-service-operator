@@ -7,6 +7,24 @@ metadata:
     {{- include "secret-service-operator.labels" . | nindent 4 }}
 rules:
 - apiGroups:
+  - ""
+  resources:
+  - secrets
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - ""
+  resources:
+  - secrets/status
+  verbs:
+  - get
+- apiGroups:
   - apps.j5t.io
   resources:
   - secretservices
