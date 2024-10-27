@@ -1,0 +1,49 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - "main"
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build Helm charts
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+            path: 'src'
+            ref: 'master'
+            fetch-depth: 0
+
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+            path: 'dest'
+            ref: 'gh-pages'
+            fetch-depth: 0
+
+      - name: Set up Helm
+        uses: Azure/setup-helm@v4
+
+      - name: Package Helm chart
+        id: helm_package
+        run: |
+          helm package deploy/charts/secret-service-operator
+          PKG_NAME=$(ls secret-service-operator*.tgz)
+          echo "name=$PKG_NAME" >> "$GITHUB_OUTPUT"
+
+      - name: Upload Helm chart artifact
+        uses: actions/upload-artifact@v4
+    
+      - name: Release Helm chart
+        env:
+          CR_GENERATE_RELEASE_NOTES: true
+          CR_MAKE_RELEASE_LATEST: true
+          CR_SKIP_EXISTING: true
+          CR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: helm/chart-releaser-action@v1
+        with:
+          skip_packaging: true
