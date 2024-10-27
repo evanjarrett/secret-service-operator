@@ -11,6 +11,7 @@ rules:
   resources:
   - secrets
   - services
+  - endpoints
   verbs:
   - create
   - delete
@@ -24,6 +25,7 @@ rules:
   resources:
   - secrets/status
   - services/status
+  - endpoints/status
   verbs:
   - get
   - patch
