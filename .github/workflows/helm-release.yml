@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - "main"
+    paths:
+      - "deploy/**"
   workflow_dispatch:
 
 jobs:
@@ -31,7 +33,7 @@ jobs:
       - name: Package Helm chart
         id: helm_package
         run: |
-          helm package deploy/charts/secret-service-operator
+          helm package src/deploy/charts/secret-service-operator
           PKG_NAME=$(ls secret-service-operator*.tgz)
           echo "name=$PKG_NAME" >> "$GITHUB_OUTPUT"
 
