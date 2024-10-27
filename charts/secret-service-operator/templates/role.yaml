@@ -10,6 +10,7 @@ rules:
   - ""
   resources:
   - secrets
+  - services
   verbs:
   - create
   - delete
@@ -22,8 +23,11 @@ rules:
   - ""
   resources:
   - secrets/status
+  - services/status
   verbs:
   - get
+  - patch
+  - update
 - apiGroups:
   - apps.j5t.io
   resources:
