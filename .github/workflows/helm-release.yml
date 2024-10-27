@@ -24,7 +24,7 @@ jobs:
       - name: Package Helm chart
         id: helm_package
         run: |
-          helm package deploy/charts/secret-service-operator
+          helm package deploy/charts/secret-service-operator -d .cr-release-packages
           PKG_NAME=$(ls secret-service-operator*.tgz)
           echo "name=$PKG_NAME" >> "$GITHUB_OUTPUT"
 
