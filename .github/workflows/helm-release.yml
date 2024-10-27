@@ -1,4 +1,4 @@
-name: Build
+name: Release Helm charts
 
 on:
   push:
@@ -9,8 +9,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
-    name: Build Helm charts
+  release:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
