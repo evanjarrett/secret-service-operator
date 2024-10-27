@@ -5,7 +5,7 @@ on:
     branches:
       - "main"
     paths:
-      - "deploy/**"
+      - "charts/**"
   workflow_dispatch:
 
 jobs:
@@ -26,20 +26,6 @@ jobs:
       - name: Set up Helm
         uses: Azure/setup-helm@v4
 
-      - name: Package Helm chart
-        id: helm_package
-        run: |
-          helm package deploy/charts/secret-service-operator -d .cr-release-packages
-          PKG_NAME=$(ls .cr-release-packages/*.tgz)
-          echo "name=$PKG_NAME" >> "$GITHUB_OUTPUT"
-
-      - name: Upload Helm chart artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: secret-service-operator
-          path: |
-            ${{ steps.helm_package.outputs.name }}
-
       - name: Release Helm chart
         env:
           CR_GENERATE_RELEASE_NOTES: true
@@ -47,5 +33,3 @@ jobs:
           CR_SKIP_EXISTING: true
           CR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         uses: helm/chart-releaser-action@v1
-        with:
-          skip_packaging: true

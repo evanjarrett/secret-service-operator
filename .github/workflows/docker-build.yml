@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths-ignore:
-      - "deploy/**"
+      - "charts/**"
       - ".github/**"
   pull_request:
     branches:
