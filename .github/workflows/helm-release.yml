@@ -38,6 +38,10 @@ jobs:
 
       - name: Upload Helm chart artifact
         uses: actions/upload-artifact@v4
+        with:
+          name: secret-service-operator
+          path: |
+            ${{ steps.helm_package.outputs.name }}
     
       - name: Release Helm chart
         env:
