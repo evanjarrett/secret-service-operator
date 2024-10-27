@@ -15,16 +15,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-            path: 'src'
-            ref: 'main'
-            fetch-depth: 0
-
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-            path: 'dest'
-            ref: 'gh-pages'
-            fetch-depth: 0
+          ref: 'main'
+          fetch-depth: 0
 
       - name: Set up Helm
         uses: Azure/setup-helm@v4
@@ -32,7 +24,7 @@ jobs:
       - name: Package Helm chart
         id: helm_package
         run: |
-          helm package src/deploy/charts/secret-service-operator
+          helm package deploy/charts/secret-service-operator
           PKG_NAME=$(ls secret-service-operator*.tgz)
           echo "name=$PKG_NAME" >> "$GITHUB_OUTPUT"
 
