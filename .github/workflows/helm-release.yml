@@ -25,7 +25,7 @@ jobs:
         id: helm_package
         run: |
           helm package deploy/charts/secret-service-operator -d .cr-release-packages
-          PKG_NAME=$(ls secret-service-operator*.tgz)
+          PKG_NAME=$(ls .cr-release-packages/*.tgz)
           echo "name=$PKG_NAME" >> "$GITHUB_OUTPUT"
 
       - name: Upload Helm chart artifact
