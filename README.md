@@ -10,7 +10,7 @@ It allows you to specify an endpoint IP and port via a secret, and convert that 
 ## Getting Started
 
 ### Prerequisites
-- go version v1.21.0+
+- go version v1.22.0+
 - docker version 17.03+.
 - kubectl version v1.11.3+.
 - Access to a Kubernetes v1.11.3+ cluster.
@@ -19,8 +19,12 @@ It allows you to specify an endpoint IP and port via a secret, and convert that 
 **Build and push your image to the location specified by `IMG`:**
 
 ```sh
-make docker-build IMG=<some-registry>/secret-service-operator:tag
+make docker-build docker-push IMG=<some-registry>/secret-service-operator:tag
 ```
+
+**NOTE:** This image ought to be published in the personal registry you specified.
+And it is required to have access to pull the image from the working environment.
+Make sure you have the proper permission to the registry if the above commands don’t work.
 
 **Install the CRDs into the cluster:**
 
@@ -97,7 +101,7 @@ More information can be found via the [Kubebuilder Documentation](https://book.k
 
 ## License
 
-Copyright 2024.
+Copyright 2025.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
