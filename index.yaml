@@ -2,6 +2,19 @@ apiVersion: v1
 entries:
   secret-service-operator:
   - apiVersion: v2
+    appVersion: 0.2.0
+    created: "2025-05-08T12:02:53.006348717Z"
+    description: A Helm chart for Kubernetes
+    digest: a6603472f503610f7f55eb167624367de2eee9ff67313fcf4a6e37df2a5e357a
+    home: https://github.com/evanjarrett/secret-service-operator/tree/main/deploy/charts/secret-service-operator
+    maintainers:
+    - name: evanjarrett
+    name: secret-service-operator
+    type: application
+    urls:
+    - https://github.com/evanjarrett/secret-service-operator/releases/download/secret-service-operator-0.2.0/secret-service-operator-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
     appVersion: 0.1.7
     created: "2024-10-27T16:58:42.292738227Z"
     description: A Helm chart for Kubernetes
@@ -79,4 +92,4 @@ entries:
     urls:
     - https://evanjarrett.github.io/secret-service-operator/secret-service-operator-0.1.2.tgz
     version: 0.1.2
-generated: "2024-10-27T16:58:42.29276134Z"
+generated: "2025-05-08T12:02:53.006374567Z"
