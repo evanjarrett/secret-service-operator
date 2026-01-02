@@ -11,7 +11,6 @@ rules:
   resources:
   - secrets
   - services
-  - endpoints
   verbs:
   - create
   - delete
@@ -25,11 +24,22 @@ rules:
   resources:
   - secrets/status
   - services/status
-  - endpoints/status
   verbs:
   - get
   - patch
   - update
+- apiGroups:
+  - discovery.k8s.io
+  resources:
+  - endpointslices
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
 - apiGroups:
   - apps.j5t.io
   resources:
