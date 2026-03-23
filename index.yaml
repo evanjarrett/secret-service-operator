@@ -7,6 +7,24 @@ entries:
       org.opencontainers.image.licenses: Apache-2.0
       org.opencontainers.image.source: https://github.com/evanjarrett/secret-service-operator
     apiVersion: v2
+    appVersion: 0.3.2
+    created: "2026-03-23T04:32:07.95507594Z"
+    description: A Helm chart for Kubernetes
+    digest: c8e8fcdc92d30c875811f7aac2fd60b8c51c6123a8fa4574cebd5360b05d53d9
+    home: https://github.com/evanjarrett/secret-service-operator/tree/main/deploy/charts/secret-service-operator
+    maintainers:
+    - name: evanjarrett
+    name: secret-service-operator
+    type: application
+    urls:
+    - https://github.com/evanjarrett/secret-service-operator/releases/download/secret-service-operator-0.3.2/secret-service-operator-0.3.2.tgz
+    version: 0.3.2
+  - annotations:
+      org.opencontainers.image.authors: Evan Jarrett
+      org.opencontainers.image.description: Create Service Endpoints based on Secrets
+      org.opencontainers.image.licenses: Apache-2.0
+      org.opencontainers.image.source: https://github.com/evanjarrett/secret-service-operator
+    apiVersion: v2
     appVersion: 0.3.1
     created: "2026-01-16T16:28:52.294755093Z"
     description: A Helm chart for Kubernetes
@@ -136,4 +154,4 @@ entries:
     urls:
     - https://evanjarrett.github.io/secret-service-operator/secret-service-operator-0.1.2.tgz
     version: 0.1.2
-generated: "2026-01-16T16:28:52.294809585Z"
+generated: "2026-03-23T04:32:07.955119438Z"
