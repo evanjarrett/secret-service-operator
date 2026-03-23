@@ -33,7 +33,6 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/log"
 
 	appsv1 "github.com/evanjarrett/secret-service-operator/api/v1"
-	"github.com/google/uuid"
 	corev1 "k8s.io/api/core/v1"
 	discoveryv1 "k8s.io/api/discovery/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
@@ -137,7 +136,7 @@ func (r *SecretServiceReconciler) Reconcile(ctx context.Context, req ctrl.Reques
 		// Create or update EndpointSlice (modern replacement for Endpoints)
 		endpointSlice := &discoveryv1.EndpointSlice{
 			ObjectMeta: metav1.ObjectMeta{
-				Name:      serviceName + "-" + uuid.NewString()[:8], // EndpointSlices need unique names
+				Name:      serviceName,
 				Namespace: instance.Namespace,
 				Labels: map[string]string{
 					discoveryv1.LabelServiceName: serviceName, // Required label to associate with Service
