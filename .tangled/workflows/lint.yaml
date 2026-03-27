@@ -1,0 +1,23 @@
+when:
+  - event: ["push"]
+    branch: ["*"]
+  - event: ["pull_request"]
+    branch: ["main"]
+
+engine: kubernetes
+image: golang:1.22-bookworm
+architecture: amd64
+
+steps:
+  - name: Download and install tools
+    environment:
+      CGO_ENABLED: "0"
+    command: |
+      go mod download
+      go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.59.1
+
+  - name: Run Linter
+    environment:
+      CGO_ENABLED: "0"
+    command: |
+      golangci-lint run ./...
