@@ -51,7 +51,9 @@ var _ = Describe("SecretService Controller", func() {
 						Name:      resourceName,
 						Namespace: "default",
 					},
-					// TODO(user): Specify other spec details if needed.
+					Spec: appsv1.SecretServiceSpec{
+						SecretName: "test-secret",
+					},
 				}
 				Expect(k8sClient.Create(ctx, resource)).To(Succeed())
 			}
